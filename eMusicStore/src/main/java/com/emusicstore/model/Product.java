@@ -1,11 +1,19 @@
 package com.emusicstore.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
+
 /**
  * Created by Alex PC on 07/11/2016.
  */
+
+@Entity
 public class Product {
 
-    private String productId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected String productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -14,6 +22,9 @@ public class Product {
     private String productStatus;
     private int unitInStock;
     private String productManufacturer;
+
+    @Transient
+    private MultipartFile productImage;
 
     public String getProductId() {
         return productId;
@@ -85,5 +96,13 @@ public class Product {
 
     public void setProductManufacturer(String productManufacturer) {
         this.productManufacturer = productManufacturer;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
     }
 }
