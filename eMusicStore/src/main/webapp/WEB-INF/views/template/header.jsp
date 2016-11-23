@@ -20,14 +20,15 @@
     <title>My Music Website</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
-    <!-- Main core CSS -->
-    <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+    <!-- Bootstrap core JS -- >
 
     <!-- Main core CSS -->
-    <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/css/carousel.css"/>" rel="stylesheet">
+
+    <!-- Main core CSS -->
+    <link href="<c:url value="resources/css/main.css"/>" rel="stylesheet">
 
 </head>
 <!-- NAVBAR
@@ -55,7 +56,7 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="<c:url value="/admin"/>">Admin</a></li>
+                    <li><a href="<c:url value="/login"/>">Admin</a></li>
                 </ul>
             </div>
         </div>

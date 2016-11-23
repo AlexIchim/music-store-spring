@@ -14,7 +14,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide home-image" src="<c:url value="/resources/images/back1.jpg" />" alt="First slide">
+            <img class="first-slide home-image" src="<c:url value="resources/images/back1.jpg" />" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
                    <h1>Welcome to Alex's music store !</h1>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="second-slide home-image" src="<c:url value="/resources/images/back2.jpg" />" alt="Second slide">
+            <img class="second-slide home-image" src="<c:url value="resources/images/back2.jpg" />" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Facts you should know about music !</h1>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="third-slide home-image" src="<c:url value="/resources/images/back3.jpg" />" alt="Third slide">
+            <img class="third-slide home-image" src="<c:url value="resources/images/back3.jpg" />" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>It's a Jazzz afari!</h1>
@@ -40,15 +40,15 @@
             </div>
         </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
     </a>
-</div><!-- /.carousel -->
+</div>
+<!-- /.carousel -->
 
 
 <!-- Marketing messaging and featurettes

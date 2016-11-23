@@ -5,7 +5,7 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 
@@ -46,8 +46,8 @@ body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
-    top: 230px;
-    bottom: auto;
+  top: 230px;
+  bottom: auto;
 }
 
 /* Declare heights because of positioning of img element */
@@ -102,7 +102,7 @@ body {
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   /*.navbar-wrapper {*/
-    /*margin-top: 20px;*/
+  /*margin-top: 20px;*/
   /*}*/
   .navbar-wrapper .container {
     padding-right: 15px;
