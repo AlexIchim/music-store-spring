@@ -50,6 +50,9 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
           <element id="library" level="project" name="Maven: net.jcip:jcip-annotations:1.0" />
           <element id="library" level="project" name="Maven: com.google.inject:guice:2.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.1" />
         </element>
       </element>
     </root>
