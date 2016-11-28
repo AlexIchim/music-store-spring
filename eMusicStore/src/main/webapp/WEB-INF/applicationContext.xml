@@ -15,7 +15,7 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="hibernateProperties" >
             <props>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
@@ -40,10 +40,11 @@
 
     <!--  Security http part-->
     <security:http auto-config="true">
-        <security:intercept-url pattern="/admin/" access="ROLE_USER" />
+        <security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+        <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
         <security:form-login
             login-page="/login"
-            default-target-url="/admin/"
+            default-target-url="/product/productList/"
             authentication-failure-url="/login?error"
             username-parameter="username"
             password-parameter="password"

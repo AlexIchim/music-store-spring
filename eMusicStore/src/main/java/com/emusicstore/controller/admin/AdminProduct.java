@@ -1,7 +1,7 @@
-package com.emusicstore.controller;
+package com.emusicstore.controller.admin;
 
-import com.emusicstore.dao.ProductDao;
 import com.emusicstore.model.Product;
+import com.emusicstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,54 +19,41 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 /**
- * Created by TekAdvice on 23.11.2016.
+ * Created by Alex Ichim on 28.11.2016.
  */
 
 @Controller
-public class AdminController {
+@RequestMapping("/admin")
+public class AdminProduct {
+
 
     private Path path;
 
     @Autowired
-    private ProductDao productDao;
+    private ProductService productService;
 
-    @RequestMapping("/admin")
-    public String adminPage() {
-        return "admin";
-    }
-
-    @RequestMapping("/admin/productInventory")
-    public String productInventory (Model model) {
-        List<Product> products = productDao.getAllProducts();
-        model.addAttribute("products", products);
-
-        return "productInventory";
-    }
-
-    @RequestMapping("/admin/productInventory/addProduct")
+    @RequestMapping("/product/addProduct")
     public String addProduct(Model model) {
         Product product = new Product();
         product.setProductCategory("instrument");
         product.setProductCondition("new");
         product.setProductStatus("active");
 
-
         model.addAttribute("product", product);
 
         return "addProduct";
     }
 
-    @RequestMapping(value = "/admin/productInventory/addProduct", method = RequestMethod.POST)
+    @RequestMapping(value = "/product/addProduct", method = RequestMethod.POST)
     public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result,
                                  HttpServletRequest request) {
         if (result.hasErrors()) {
             return "addProduct";
         }
 
-        productDao.addProduct(product);
+        productService.addProduct(product);
 
         MultipartFile productImage = product.getProductImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
@@ -77,45 +64,27 @@ public class AdminController {
                 productImage.transferTo(new File(path.toString()));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new RuntimeException("Product image saving failed !");
+                throw new RuntimeException("Product image saving failed.", e);
             }
         }
 
         return "redirect:/admin/productInventory";
     }
 
-    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable String id, Model model, HttpServletRequest request) throws IOException {
 
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");
-
-        if (Files.exists(path)) {
-            try {
-                Files.delete(path);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        productDao.deleteProduct(id);
-
-        return "redirect:/admin/productInventory";
-    }
-
-    @RequestMapping("/admin/productInventory/editProduct/{id}")
-    public String editProduct(@PathVariable("id") String id, Model model) {
-        Product product = productDao.getProductById(id);
-
-        model.addAttribute(product);
+    @RequestMapping("/product/editProduct/{id}")
+    public String editProduct(@PathVariable("id") int id, Model model) {
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
 
         return "editProduct";
     }
 
-    @RequestMapping(value = "/admin/productInventory/editProduct", method = RequestMethod.POST)
-    public String editProduct(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model,
-                              HttpServletRequest request) {
 
+
+    @RequestMapping(value = "/product/editProduct", method = RequestMethod.POST)
+    public String editProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result,
+                                 HttpServletRequest request) {
         if (result.hasErrors()) {
             return "editProduct";
         }
@@ -129,13 +98,34 @@ public class AdminController {
                 productImage.transferTo(new File(path.toString()));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new RuntimeException("Product image saving failed!", e);
+                throw new RuntimeException("Product image saving failed.", e);
             }
         }
 
-        productDao.editProduct(product);
+        productService.editProduct(product);
 
         return "redirect:/admin/productInventory";
     }
+
+    @RequestMapping("/product/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable int id,  Model model, HttpServletRequest request) {
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");
+
+        if (Files.exists(path)) {
+            try {
+                Files.delete(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Product product = productService.getProductById(id);
+        productService.deleteProduct(product);
+
+        return "redirect:/admin/productInventory";
+    }
+
+
 
 }

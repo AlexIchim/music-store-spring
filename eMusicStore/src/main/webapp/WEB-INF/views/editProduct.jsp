@@ -8,7 +8,7 @@
             <p class="lead">Please update the product information here !</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post"
+        <form:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post"
                    commandName="product" enctype="multipart/form-data">
             <form:hidden path="productId" value="${product.productId}"/>
 
@@ -77,7 +77,7 @@
         <br><br>
 
         <input type="submit" value="submit" class="btn btn-default">
-        <a href="<c:url value="/admin/productInventory" /> " class="btn btn-default">Cancel</a>
+        <a href="<c:url value="/admin/product" /> " class="btn btn-default">Cancel</a>
         </form:form>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>
