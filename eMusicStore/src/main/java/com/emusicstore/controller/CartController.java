@@ -26,18 +26,18 @@ public class CartController {
     @Autowired
     private ProductDao productDao;
 
-    @RequestMapping(value = "/{cartId", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.GET)
     public @ResponseBody Cart read(@PathVariable(value = "cartId") String cartId) {
         return cartDao.read(cartId);
     }
 
-    @RequestMapping(value = "{cartId", method = RequestMethod.PUT)
+    @RequestMapping(value = "{cartId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void update(@PathVariable(value = "cartId") String cartId, @RequestBody Cart cart) {
         cartDao.update(cartId, cart);
     }
 
-    @RequestMapping(value = "{cartId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "cartId") String cartId) {
         cartDao.delete(cartId);
@@ -50,7 +50,7 @@ public class CartController {
         Cart cart = cartDao.read(sessionId);
 
         if (cart == null) {
-            cart = cartDao.create(new Cart(sessionId);
+            cart = cartDao.create(new Cart(sessionId));
         }
 
         Product product = productDao.getProductById(productId);
@@ -63,14 +63,14 @@ public class CartController {
         cartDao.update(sessionId, cart);
     }
 
-    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId =  request.getSession(true).getId();
         Cart cart = cartDao.read(sessionId);
 
         if (cart == null) {
-            cart = cartDao.create(new Cart(sessionId);
+            cart = cartDao.create(new Cart(sessionId));
         }
 
         Product product = productDao.getProductById(productId);
