@@ -1,8 +1,9 @@
 package com.emusicstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,9 @@ public class ShippingAddress implements Serializable {
     private String state;
     private String country;
     private String zipCode;
+
+    @OneToOne
+    private Customer customer;
 
     public int getShippingAddressId() {
         return shippingAddressId;
@@ -80,6 +84,12 @@ public class ShippingAddress implements Serializable {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public Customer getCustomer() {return customer;}
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
