@@ -2,6 +2,7 @@ package com.emusicstore.dao.impl;
 
 import com.emusicstore.dao.CartDao;
 import com.emusicstore.model.Cart;
+import com.emusicstore.service.CustomerOrderService;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +23,8 @@ public class CartDaoImpl implements CartDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Autowired
+    private CustomerOrderService customerOrderService;
     public Cart getCartById(int cartId) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -31,7 +34,7 @@ public class CartDaoImpl implements CartDao {
     public Cart validate(int cartId) throws IOException {
         Cart cart = getCartById(cartId);
         if (cart == null || cart.getCartItems().size() == 0) {
-            throw new IOException(cartId +"");
+            throw new IOException(cartId+"");
         }
 
         update(cart);
@@ -40,9 +43,10 @@ public class CartDaoImpl implements CartDao {
 
     public void update(Cart cart) {
         int cartId = cart.getCartId();
-        // to to late grandTotal
-        Session session = sessionFactory.getCurrentSession();
+        double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
+        cart.setGrandTotal(grandTotal);
 
-        return;
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(cart);
     }
 }

@@ -55,7 +55,7 @@ public class CustomerDaoImpl implements CustomerDao {
         session.saveOrUpdate(newAuthority);
 
         Cart newCart = new Cart();
-        newCart.setCustoemr(customer);
+        newCart.setCustomer(customer);
         customer.setCart(newCart);
         session.saveOrUpdate(customer);
         session.saveOrUpdate(newCart);

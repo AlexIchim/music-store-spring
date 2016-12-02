@@ -25,7 +25,7 @@ public class Cart implements Serializable {
     @OneToOne
     @JoinColumn(name = "customerId")
     @JsonIgnore
-    private Customer custoemr;
+    private Customer customer;
 
     private double grandTotal;
 
@@ -45,12 +45,12 @@ public class Cart implements Serializable {
         this.cartItems = cartItems;
     }
 
-    public Customer getCustoemr() {
-        return custoemr;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustoemr(Customer custoemr) {
-        this.custoemr = custoemr;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public double getGrandTotal() {

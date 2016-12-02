@@ -24,8 +24,6 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     @Autowired
     private CustomerOrderDao customerOrderDao;
 
-    @Autowired
-
     public void addCustomerOrder(CustomerOrder customerOrder) {
         customerOrderDao.addCustomerOrder(customerOrder);
     }

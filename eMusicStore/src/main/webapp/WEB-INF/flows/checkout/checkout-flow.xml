@@ -3,10 +3,10 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
 
-    <var name="ordder" class="com.emusicstore.model.CustomerOrder" />
+    <var name="order" class="com.emusicstore.model.CustomerOrder" />
 
     <action-state id="addCartToOrder">
-        <evaluate expression="cartDaoImpl.validate(requestPrameters.cartId)" result="order.cart" />
+        <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart" />
         <transition to="InvalidCartWarning" on-exception="java.io.IOException" />
         <transition to="collectCustomerInfo" />
     </action-state>
@@ -36,11 +36,11 @@
 
     <end-state id="endState"/>
 
-    <view-state id="InvalidCartWaring">
-        <transition to="endState" />
+    <view-state id="InvalidCartWarning">
+        <transition to="endState"/>
     </view-state>
 
-    <end-state id="cancelCheckout" view="checkoutCanceled.jsp" />
+    <end-state id="cancelCheckout" view="checkOutCanceled.jsp" />
 
     <global-transitions>
         <transition on="cancel" to="cancelCheckout" />
