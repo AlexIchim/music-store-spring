@@ -20,6 +20,7 @@
         <div class="form-group">
             <label for="email">Email</label>
             <form:input path="customerEmail"  id="email" class="form-control" />
+            <span style="color: #FF0000">${emailMsg}</span>
             <form:errors path="customerEmail" cssStyle="color: #ff0000" />
         </div>
 
@@ -32,6 +33,7 @@
         <div class="form-group">
             <label for="username">Username</label>
             <form:input path="username"  id="username" class="form-control" />
+            <span style="color: #FF0000">${usernameMsg}</span>
             <form:errors path="Username" cssStyle="color: #ff0000" />
         </div>
 
