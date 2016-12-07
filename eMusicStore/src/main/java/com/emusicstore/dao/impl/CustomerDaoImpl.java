@@ -84,4 +84,15 @@ public class CustomerDaoImpl implements CustomerDao {
 
         return (Customer) query.uniqueResult();
     }
+
+    public void editCustomer(Customer customer) {
+        Session session = sessionFactory.getCurrentSession();
+        System.out.println(customer.toString());
+
+        session.saveOrUpdate(customer.getShippingAddress());
+        session.saveOrUpdate(customer.getBillingAddress());
+        session.saveOrUpdate(customer);
+        System.out.println("Customer updated!");
+        session.flush();
+    }
 }

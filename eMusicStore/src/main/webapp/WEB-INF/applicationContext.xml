@@ -17,7 +17,7 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="hibernateProperties" >
             <props>
-                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
@@ -37,6 +37,10 @@
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
         <property name="maxUploadSize" value="2048000" />
+    </bean>
+
+    <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <constructor-arg value="12"/>
     </bean>
 
 
@@ -59,6 +63,7 @@
     <!--  Security auth manager part-->
     <security:authentication-manager>
         <security:authentication-provider>
+            <security:password-encoder ref="encoder"/>
             <security:jdbc-user-service data-source-ref="dataSource"
                                         authorities-by-username-query="SELECT username, authority From authorities WHERE username = ?"
                                         users-by-username-query="SELECT username, password, enabled From users WHERE username = ?" />

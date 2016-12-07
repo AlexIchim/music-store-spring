@@ -26,9 +26,22 @@
                     <td>${customer.customerPhone}</td>
                     <td>${customer.username}</td>
                     <td>${customer.enabled}</td>
+                    <td>
+                        <a href="<spring:url value="/admin/customer/viewCustomer/${customer.customerId}" />">
+                            <span class="glyphicon glyphicon-info-sign"> </span>
+                        </a>
+                        <a href="<spring:url value="/admin/customer/editCustomer/${customer.customerId}" />">
+                            <span class="glyphicon glyphicon-pencil"> </span>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
 
         </table>
+
+        <br><br>
+
+        <a href="${pageContext.request.contextPath}/register" class="btn btn-default">Register Customer Account</a>
+        <br><br>
 
 <%@include file="/WEB-INF/views/template/footer.jsp"%>

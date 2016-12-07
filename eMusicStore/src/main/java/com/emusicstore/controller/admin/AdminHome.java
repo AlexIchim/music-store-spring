@@ -7,8 +7,15 @@ import com.emusicstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -44,5 +51,34 @@ public class AdminHome {
         List<Customer> customerList = customerService.getAllCustomers();
         model.addAttribute("customerList", customerList);
         return "customerManagement";
+    }
+
+    @RequestMapping("/customer/viewCustomer/{customerId}")
+    public String viewCustomer(@PathVariable int customerId, Model model) throws IOException {
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer", customer);
+
+        return "viewCustomer";
+    }
+
+    @RequestMapping("/customer/editCustomer/{customerId}")
+    public String editCustomer(@PathVariable("customerId") int customerId, Model model) {
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer", customer);
+
+        return "editCustomer";
+    }
+
+
+    @RequestMapping(value = "/customer/editCustomer", method = RequestMethod.POST)
+    public String editCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult,
+                                   HttpServletRequest request) {
+
+
+        if (bindingResult.hasErrors())
+            return "editCustomer";
+
+        customerService.editCustomer(customer);
+        return "redirect:/admin/customer";
     }
 }

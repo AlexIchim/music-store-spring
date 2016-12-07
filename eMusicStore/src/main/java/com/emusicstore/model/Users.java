@@ -1,5 +1,7 @@
 package com.emusicstore.model;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -36,9 +38,10 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
 
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+        this.password = encoder.encode(password);
+    }
     public boolean isEnabled() {
         return enabled;
     }
