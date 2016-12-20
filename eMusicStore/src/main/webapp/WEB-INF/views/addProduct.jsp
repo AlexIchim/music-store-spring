@@ -16,20 +16,20 @@
                 <form:errors path="productName" cssStyle="color: #ff0000" />
             </div>
 
-            <div class="form-group">
-                <label for="category">Category</label>
-                <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                                 value="insrument"/>Instrument</label>
-                <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                                 value="record"/>Record</label>
-                <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                                 value="accessory"/>Accessory</label>
 
+            <div class="form-group">
+                <label for="productAuthor">Author</label>
+                <form:input path="productAuthor" id="productAuthor" class="form-control"/>
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
-                <form:textarea path="productDescription" id="description" class="form-control" />
+                <label for="productCategory">Category</label>
+                <form:input path="productCategory" id="productCategory" class="form-control"/>
+            </div>
+
+        <div class="form-group">
+            <label for="productYear">Year</label>
+            <form:input path="productYear" id="productYear" class="form-control"/>
             </div>
 
             <div class="form-group">
@@ -38,15 +38,8 @@
                 <form:errors path="productPrice" cssStyle="color: #ff0000" />
             </div>
 
-            <div class="form-group">
-                <label for="condition">Condition</label>
-                <label class="checkbox-inline"><form:radiobutton path="productCondition" id="condition"
-                                                                 value="new"/>New</label>
-                <label class="checkbox-inline"><form:radiobutton path="productCondition" id="condition"
-                                                                 value="used"/>Used</label>
-            </div>
 
-            <div class="form-group">
+        <div class="form-group">
                 <label for="status">Status</label>
                 <label class="checkbox-inline"><form:radiobutton path="productStatus" id="status"
                                                                  value="active"/>Active</label>

@@ -14,38 +14,30 @@
 
         <div class="form-group">
             <label for="name">Name</label>
-            <form:input path="productName" id="name" class="form-Control" value="${product.productName}"/>
+            <form:input path="productName" id="name" class="form-control" value="${product.productName}"/>
 
         </div>
 
         <div class="form-group">
-            <label for="category">Category</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="insrument"/>Instrument</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="record"/>Record</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="accessory"/>Accessory</label>
-
+            <label for="productAuthor">Author</label>
+            <form:input path="productAuthor" id="productAuthor" class="form-control" value="${product.productAuthor}"/>
         </div>
 
         <div class="form-group">
-            <label for="description">Description</label>
-            <form:textarea path="productDescription" id="description" class="form-Control"
-                           value="${product.productDescription}"/>
+            <label for="productCategory">Category</label>
+            <form:input path="productCategory" id="productCategory" class="form-control"
+                        value="${product.productCategory}"/>
         </div>
+
+        <div class="form-group">
+            <label for="productYear">Year</label>
+            <form:input path="productYear" id="productYear" class="form-control" value="${product.productYear}"/>
+        </div>
+
 
         <div class="form-group">
             <label for="price">Price</label>
             <form:input path="productPrice" id="price" class="form-Control" value="${product.productPrice}"/>
-        </div>
-
-        <div class="form-group">
-            <label for="condition">Condition</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCondition" id="condition"
-                                                             value="new"/>New</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCondition" id="condition"
-                                                             value="used"/>Used</label>
         </div>
 
         <div class="form-group">
@@ -77,7 +69,7 @@
         <br><br>
 
         <input type="submit" value="submit" class="btn btn-default">
-        <a href="<c:url value="/admin/product" /> " class="btn btn-default">Cancel</a>
+        <a href="<c:url value="/admin/productInventory" /> " class="btn btn-default">Cancel</a>
         </form:form>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

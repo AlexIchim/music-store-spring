@@ -2,6 +2,7 @@ package com.emusicstore.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by Alex Ichim on 28.11.2016.
@@ -32,6 +33,18 @@ public class CustomerOrder implements Serializable{
     @OneToOne
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
+
+    private Date orderDate;
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+
 
     public int getCustomerOrderId() {
         return customerOrderId;

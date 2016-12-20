@@ -21,14 +21,14 @@
     </view-state>
 
     <view-state id="orderConfirmation">
-        <transition on="orderConfirmed" to="processOrder" />
+        <transition on="orderConfirmed" to="thankCustomer"/>
         <transition on="backToCollectShippingDetail" to="collectShippingDetail" />
     </view-state>
-
-    <action-state id="processOrder">
-        <evaluate expression="cartItemDaoImpl.removeAllCartItems(order.cart)" />
-        <transition to="thankCustomer" />
-    </action-state>
+    <!--
+        <action-state id="processOrder">
+            <evaluate expression="cartItemDaoImpl.removeAllCartItems(order.cart)" />
+            <transition to="thankCustomer" />
+        </action-state>-->
 
     <view-state id="thankCustomer" model="order" >
         <transition to="endState" />

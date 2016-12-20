@@ -40,4 +40,8 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 
         return grandTotal;
     }
+
+    public List<CustomerOrder> getCustomerOrdersByCustomerId(String userId) {
+        return customerOrderDao.getCustomerOrdersByUserId(userId);
+    }
 }

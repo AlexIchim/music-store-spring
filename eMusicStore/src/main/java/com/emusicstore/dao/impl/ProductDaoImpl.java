@@ -2,6 +2,7 @@ package com.emusicstore.dao.impl;
 
 import com.emusicstore.dao.ProductDao;
 import com.emusicstore.model.Product;
+import com.emusicstore.model.Rating;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -57,4 +58,22 @@ public class ProductDaoImpl implements ProductDao {
         session.delete(product);
         session.flush();
     }
+
+    public void addRating(Rating rating, int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Product product = (Product) session.get(Product.class, id);
+        rating.setProductToRate(product);
+        session.saveOrUpdate(rating);
+        session.flush();
+    }
+
+    public List<Rating> getRatingList(int productId) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Rating WHERE PRODUCTID = ?");
+        query.setInteger(0, productId);
+
+        List<Rating> listRating = query.list();
+        return listRating;
+    }
+
 }

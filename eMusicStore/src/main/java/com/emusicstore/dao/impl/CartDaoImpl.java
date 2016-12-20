@@ -49,4 +49,10 @@ public class CartDaoImpl implements CartDao {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(cart);
     }
+
+    public void addCart(Cart cart) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(cart);
+        session.flush();
+    }
 }

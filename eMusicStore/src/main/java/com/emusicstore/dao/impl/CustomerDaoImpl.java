@@ -89,6 +89,7 @@ public class CustomerDaoImpl implements CustomerDao {
         Session session = sessionFactory.getCurrentSession();
         System.out.println(customer.toString());
 
+
         session.saveOrUpdate(customer.getShippingAddress());
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer);

@@ -1,6 +1,7 @@
 package com.emusicstore.dao;
 
 import com.emusicstore.model.Product;
+import com.emusicstore.model.Rating;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface ProductDao {
     void editProduct(Product product);
 
     void deleteProduct(Product product);
+
+    void addRating(Rating rating, int id);
+
+    List<Rating> getRatingList(int productId);
 }

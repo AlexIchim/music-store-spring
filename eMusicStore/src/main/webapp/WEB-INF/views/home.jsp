@@ -17,8 +17,8 @@
             <img class="first-slide home-image" src="<c:url value="resources/images/back1.jpg" />" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                   <h1>Welcome to Alex's music store !</h1>
-                    <p> Here you can browse , buy indstruments,records and music related Accessories.</p>
+                    <h1>Welcome to my book store !</h1>
+                    <p> Here you can browse and buy your favorite books.</p>
                 </div>
             </div>
         </div>
@@ -26,8 +26,8 @@
             <img class="second-slide home-image" src="<c:url value="resources/images/back2.jpg" />" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Facts you should know about music !</h1>
-                    <p> Music brings joy to all of your hearts. It's one of those, emotional arts.</p>
+                    <h1>No two persons ever read the same book.</h1>
+                    <p>Edmund Wilson</p>
                 </div>
             </div>
         </div>
@@ -35,8 +35,8 @@
             <img class="third-slide home-image" src="<c:url value="resources/images/back3.jpg" />" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>It's a Jazzz afari!</h1>
-                    <p> Here you can browse , buy indstruments,records and music related Accessories.</p>                </div>
+                    <h1>Always read something that will make you look good if you die in the middle of it. </h1>
+                    <p>P.J. O’Rourke</p></div>
             </div>
         </div>
     </div>

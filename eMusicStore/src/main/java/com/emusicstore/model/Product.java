@@ -1,11 +1,14 @@
 package com.emusicstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
  */
 
 @Entity
+@XmlRootElement(name = "Employee")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 3078519096000044823L;
@@ -24,14 +28,15 @@ public class Product implements Serializable {
 
     @NotEmpty(message = "The product name must not be null.")
     private String productName;
-
-    private String productCategory;
-    private String productDescription;
+    private int productYear;
+    private String productAuthor;
 
     @Min(value = 0, message = "The product price must not be less than 0.")
     private double productPrice;
-    private String productCondition;
     private String productStatus;
+
+
+    private String productCategory;
 
     @Min(value = 0, message = "The product unit must not be less than 0.")
     private int unitInStock;
@@ -43,6 +48,11 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<CartItem> cartItemList;
+
+    @OneToMany(mappedBy = "productToRate", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Rating> ratings;
+
 
     public int getProductId() {
         return productId;
@@ -60,20 +70,20 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String getProductCategory() {
-        return productCategory;
+    public int getProductYear() {
+        return productYear;
     }
 
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
+    public void setProductYear(int productYear) {
+        this.productYear = productYear;
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    public String getProductAuthor() {
+        return productAuthor;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setProductAuthor(String productAuthor) {
+        this.productAuthor = productAuthor;
     }
 
     public double getProductPrice() {
@@ -82,14 +92,6 @@ public class Product implements Serializable {
 
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
-    }
-
-    public String getProductCondition() {
-        return productCondition;
-    }
-
-    public void setProductCondition(String productCondition) {
-        this.productCondition = productCondition;
     }
 
     public String getProductStatus() {
@@ -131,4 +133,21 @@ public class Product implements Serializable {
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
     }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
 }
+

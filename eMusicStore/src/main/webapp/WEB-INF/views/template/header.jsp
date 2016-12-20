@@ -71,6 +71,7 @@
                         <li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
                         <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
                             <li><a href="<c:url value="/customer/cart"/>">Cart</a> </li>
+                            <li><a href="<c:url value="/order/orders"/>">Orders</a></li>
                         </c:if>
                         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
                             <li><a href="<c:url value="/admin"/>">Admin</a> </li>

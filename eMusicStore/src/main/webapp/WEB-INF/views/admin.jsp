@@ -29,5 +29,11 @@
 
         <p>Here you can view, the customer information !</p>
 
+        <h3>
+            <a href="<c:url value="/admin/order" />">Order Management</a>
+        </h3>
+
+        <p>Here you can view, update and delete orders!</p>
+
 
 <%@include file="/WEB-INF/views/template/footer.jsp"%>

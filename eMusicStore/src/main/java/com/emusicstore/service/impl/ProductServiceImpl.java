@@ -2,6 +2,7 @@ package com.emusicstore.service.impl;
 
 import com.emusicstore.dao.ProductDao;
 import com.emusicstore.model.Product;
+import com.emusicstore.model.Rating;
 import com.emusicstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,4 +38,14 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Product product) {
         productDao.deleteProduct(product);
     }
+
+    public void addRating(Rating rating, int id) {
+        productDao.addRating(rating, id);
+    }
+
+    public List<Rating> getRatingLisr(int productId) {
+        return productDao.getRatingList(productId);
+    }
+
+
 }

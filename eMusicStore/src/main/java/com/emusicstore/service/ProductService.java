@@ -1,6 +1,7 @@
 package com.emusicstore.service;
 
 import com.emusicstore.model.Product;
+import com.emusicstore.model.Rating;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface ProductService {
     void editProduct(Product product);
 
     void deleteProduct(Product product);
+
+    void addRating(Rating rating, int id);
+
+    List<Rating> getRatingLisr(int productId);
 }

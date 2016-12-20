@@ -30,7 +30,8 @@
 
         <div class="form-group">
             <label for="name">Username</label>
-            <form:input path="username" id="username" class="form-control" value="${customer.username}"/>
+            <form:input path="username" id="username" class="form-control" value="${customer.username}"
+                        readonly="true"/>
         </div>
 
         <div class="form-group">
@@ -39,10 +40,9 @@
         </div>
 
 
-        <div class="form-group">
-            <label for="password">Username</label>
-            <form:input type="hidden" path="password" id="password" class="form-control" value="${customer.password}"/>
-        </div>
+            <%--<div class="form-group">
+                <form:input type="hidden" path="password" id="password" class="form-control" value="${customer.password}"/>
+            </div>--%>
 
         <br><br>
 
