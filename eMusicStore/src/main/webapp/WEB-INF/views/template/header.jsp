@@ -62,7 +62,6 @@
                 <ul class="nav navbar-nav">
                     <li> <a href="<c:url value="/"/>">Home</a></li>
                     <li><a href="<c:url value="/product/productList" />">Products</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <!-- Wether the user has login or not, retrieved from Spring Security context.-->

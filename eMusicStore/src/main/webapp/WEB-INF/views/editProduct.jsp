@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label for="price">Price</label>
-            <form:input path="productPrice" id="price" class="form-Control" value="${product.productPrice}"/>
+            <form:input path="productPrice" id="price" class="form-control" value="${product.productPrice}"/>
         </div>
 
         <div class="form-group">
@@ -51,12 +51,12 @@
 
         <div class="form-group">
             <label for="unitInStock">Unit In Stock</label>
-            <form:input path="unitInStock" id="unitInStock" class="form-Control" value="${product.unitInStock}"/>
+            <form:input path="unitInStock" id="unitInStock" class="form-control" value="${product.unitInStock}"/>
         </div>
 
         <div class="form-group">
             <label for="manufacturer">Product Manufcaturer</label>
-            <form:input path="productManufacturer" id="manufacturer" class="form-Control"
+            <form:input path="productManufacturer" id="manufacturer" class="form-control"
                         value="${product.productManufacturer}"/>
         </div>
 
@@ -68,7 +68,7 @@
 
         <br><br>
 
-        <input type="submit" value="submit" class="btn btn-default">
+        <input type="submit" value="Submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" /> " class="btn btn-default">Cancel</a>
         </form:form>
 

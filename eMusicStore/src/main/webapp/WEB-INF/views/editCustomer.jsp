@@ -14,22 +14,22 @@
             <form:hidden path="customerId" value="${customer.customerId}"/>
 
         <div class="form-group">
-            <label for="name">Name</label>
-            <form:input path="customerName" id="name" class="form-control" value="${customer.customerName}"/>
+            <label for="customerName">Name</label>
+            <form:input path="customerName" id="customerName" class="form-control" value="${customer.customerName}"/>
         </div>
 
         <div class="form-group">
             <label for="customerEmail">Email</label>
-            <form:input path="customerEmail" id="name" class="form-control" value="${customer.customerEmail}"/>
+            <form:input path="customerEmail" id="customerEmail" class="form-control" value="${customer.customerEmail}"/>
         </div>
 
         <div class="form-group">
-            <label for="name">Phone</label>
-            <form:input path="customerPhone" id="name" class="form-control" value="${customer.customerPhone}"/>
+            <label for="customerPhone">Phone</label>
+            <form:input path="customerPhone" id="customerPhone" class="form-control" value="${customer.customerPhone}"/>
         </div>
 
         <div class="form-group">
-            <label for="name">Username</label>
+            <label for="username">Username</label>
             <form:input path="username" id="username" class="form-control" value="${customer.username}"
                         readonly="true"/>
         </div>
@@ -124,7 +124,7 @@
 
         <br><br>
 
-        <input type="submit" value="submit" class="btn btn-default">
+        <input type="submit" value="Submit" class="btn btn-default">
         <a href="<c:url value="/admin/customer" /> " class="btn btn-default">Cancel</a>
         </form:form>
 

@@ -24,7 +24,7 @@
                 <tr>
                     <td>
                         <img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
-                             style="width:250px; height:250px;"/>
+                             style="width:50%;"/>
                     </td>
                     <td>${product.productName}</td>
                     <td>${product.productAuthor}</td>

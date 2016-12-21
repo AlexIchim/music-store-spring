@@ -1,5 +1,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 
 
@@ -41,7 +42,9 @@
                     <p><strong></strong>${customer.shippingAddress.city}</p>
                     <p><strong></strong>${customer.shippingAddress.country}</p>
                     <p><strong></strong>${customer.shippingAddress.zipCode}</p>
-
+                    <a href="<spring:url value="/order/orders/${customer.username}" />">
+                        Customer Orders
+                    </a>
 
                     <br>
                     <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>

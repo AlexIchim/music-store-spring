@@ -14,4 +14,8 @@ public interface CustomerOrderService {
     double getCustomerOrderGrandTotal(int cartId);
 
     List<CustomerOrder> getCustomerOrdersByCustomerId(String userId);
+
+    CustomerOrder getCustomerOrderByUserAndOrderId(String userId, int orderId);
+
+    void editOrder(CustomerOrder customerOrder);
 }

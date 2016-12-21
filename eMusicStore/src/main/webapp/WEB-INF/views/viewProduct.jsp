@@ -122,7 +122,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
-                         style="width:200px; height:250px;"/>
+                         style="width:100%;"/>
                 </div>
 
                 <div class="col-md-4">
@@ -133,7 +133,7 @@
                     <p><strong>Manufacturer</strong> : ${product.productManufacturer}</p>
                     <p><strong>Status </strong> : ${product.productStatus}</p>
                     <p><strong></strong></p>
-                    <h4> :${product.productPrice}</h4>
+                    <h4> ${product.productPrice} USD</h4>
 
                     <br>
 

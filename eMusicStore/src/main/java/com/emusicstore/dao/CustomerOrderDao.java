@@ -13,4 +13,8 @@ public interface CustomerOrderDao {
     void addCustomerOrder(CustomerOrder customerOrder);
 
     List<CustomerOrder> getCustomerOrdersByUserId(String userId);
+
+    CustomerOrder getCustomerOrderByUserAndOrderId(String userId, int orderId);
+
+    void editOrder(CustomerOrder customerOrder);
 }

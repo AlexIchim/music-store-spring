@@ -44,4 +44,12 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     public List<CustomerOrder> getCustomerOrdersByCustomerId(String userId) {
         return customerOrderDao.getCustomerOrdersByUserId(userId);
     }
+
+    public CustomerOrder getCustomerOrderByUserAndOrderId(String userId, int orderId) {
+        return customerOrderDao.getCustomerOrderByUserAndOrderId(userId, orderId);
+    }
+
+    public void editOrder(CustomerOrder customerOrder) {
+        customerOrderDao.editOrder(customerOrder);
+    }
 }

@@ -16,7 +16,9 @@
                 <th>Date</th>
                 <th>Items</th>
                 <th>TotalPrice</th>
-                <th></th>
+                <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                    <th>EditOrder</th>
+                </c:if>
             </tr>
             </thead>
             <c:forEach items="${orders}" var="order" varStatus="index">
@@ -36,6 +38,14 @@
                                                     <span class="glyphicon glyphicon-info-sign"> </span>
                                                 </a>
                                             </td>--%>
+
+                    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                        <td>
+                            <a href="<spring:url value="/admin/orders/editOrder/${order.customer.username}/${order.customerOrderId}" />">
+                                <span class="glyphicon glyphicon-pencil"> </span>
+                            </a>
+                        </td>
+                    </c:if>
                 </tr>
             </c:forEach>
 
